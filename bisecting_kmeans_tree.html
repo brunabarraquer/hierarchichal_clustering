@@ -1,17 +1,17 @@
 <!doctype html>
-<html lang="en">
-<meta charset="utf-8"/>
-<title>Bisecting KMeans Tree</title>
-<style>
-  body { font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
-  summary { cursor: pointer; }
-  ul { list-style: none; margin-left: 1rem; padding-left: .5rem; }
-  li.q { margin: .05rem 0; }
-  /* ✅ zero-result queries in red */
-  li.q.zero { color: #b00020; font-weight: 700; }
-</style>
-<body>
-<ul><li><details open><summary title='This is the root node and covers a broad range of consumer electronics and related accessories, including phones, laptops, TVs, and car parts.'><b>Consumer Electronics &amp; Accessories</b> n=2000, sse=1999.88, depth=0</summary><ul><li><details open><summary title='This node includes queries related to entertainment like games (&#x27;crew motorfest&#x27;) and home connectivity devices (&#x27;amplificiador wifi&#x27;, &#x27;carplay wifi&#x27;).'><b>Entertainment &amp; Connectivity</b> n=1180, sse=1143.19, depth=1</summary><ul><li><details open><summary title='This node covers various home appliances and portable gadgets like refrigerators, garment steamers, blenders, and coffee thermoses.'><b>Home Appliances &amp; Gadgets</b> n=637, sse=594.09, depth=2</summary><ul><li><details open><summary title='This node refines home appliances to focus on kitchen tools (blenders, coffee thermoses) and personal grooming items (&#x27;philips one blade&#x27; replacements).'><b>Kitchen &amp; Grooming Appliances</b> n=335, sse=285.78, depth=3</summary><ul><li><details open><summary title='Queries cover ironing stations, blenders, personal care device replacements, kitchen extractors, washing machines, and coffee makers.'><b>Home Appliances and Kitchen Gadgets</b> n=234, sse=196.96, depth=4</summary><ul><li><details open><summary title='This node groups queries for kitchen-specific appliances like Ninja blenders, Dolce Gusto coffee makers, kitchen faucets, Cecotec fans, and Balay compact ovens, including Black Friday deals.'><b>Kitchen &amp; Small Appliances</b> n=113, sse=90.80, depth=5</summary><ul><li><details open><summary title='All queries in this node are about different types and brands of coffee makers, suggesting users are looking for beverage preparation appliances.'><b>Coffee Machine Varieties</b> n=27, sse=13.47, depth=6</summary><ul><li class='q '>cafetera capsulas dolce gusto automatica</li>
+    <html lang="es">
+    <meta charset="utf-8"/>
+    <title>Árbol de Bisecting K-Means</title>
+    <style>
+      body { font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
+      summary { cursor: pointer; }
+      ul { list-style: none; margin-left: 1rem; padding-left: .5rem; }
+      li.q { margin: .05rem 0; }
+      /* consultas sin resultados en rojo */
+      li.q.zero { color: #b00020; font-weight: 700; }
+    </style>
+    <body>
+    <ul><li><details open><summary title='Este nodo raíz agrupa consultas diversas que abarcan desde tecnología hasta accesorios para vehículos y electrónica de consumo.'><b>Electrónica y Accesorios</b> n=2000, sse=1999.88, nivel=0</summary><ul><li><details open><summary title='Agrupa consultas sobre productos tecnológicos como ordenadores y pantallas, junto con referencias a videojuegos.'><b>Tecnología y Videojuegos</b> n=1180, sse=1143.19, nivel=1</summary><ul><li><details open><summary title='Este nodo agrupa consultas sobre aparatos para el hogar, desde refrigeradores portátiles hasta electrodomésticos de cocina y planchado.'><b>Hogar y Pequeños Electrodomésticos</b> n=637, sse=594.09, nivel=2</summary><ul><li><details open><summary title='Consultas sobre electrodomésticos de cocina como batidoras y termos, además de accesorios para el cuidado personal.'><b>Pequeños Electrodomésticos de Cocina y Hogar</b> n=335, sse=285.78, nivel=3</summary><ul><li><details open><summary title='Este nodo agrupa electrodomésticos como centros de planchado (Rowenta), batidoras (Ninja), recambios (One Blade), extractores de cocina, lavadoras (Bosch) y cafeteras (Dolce Gusto).'><b>Electrodomésticos de cocina y hogar</b> n=234, sse=196.96, nivel=4</summary><ul><li><details open><summary title='Agrupa batidoras, cafeteras, grifos de cocina, y hornos compactos, todos relacionados con la preparación de alimentos y bebidas en la cocina.'><b>Pequeños Electrodomésticos Cocina</b> n=113, sse=90.80, nivel=5</summary><ul><li><details open><summary title='Este nodo se centra en diversos tipos de cafeteras, incluyendo modelos automáticos, con molinillo y de expresso, así como marcas específicas.'><b>Cafeteras y Preparación de Bebidas</b> n=27, sse=13.47, nivel=6</summary><ul><li class='q '>cafetera capsulas dolce gusto automatica</li>
 <li class='q '>cafetera con molinillo</li>
 <li class='q '>cafetera ninja</li>
 <li class='q '>cafetera express</li>
@@ -37,7 +37,7 @@
 <li class='q '>cafetera express cunbia</li>
 <li class='q '>cafetera induccion</li>
 <li class='q '>cafetera cecotec</li>
-<li class='q '>molinillo café</li></ul></details></li><li><details open><summary title='Queries feature specific brands and types of kitchen appliances like &#x27;ninja batidora vaso&#x27;, &#x27;grifos cocina&#x27;, &#x27;cecotec forceclima 14600&#x27;, &#x27;horno compacto balay&#x27;, and &#x27;hornos black friday&#x27;.'><b>Kitchen and Small Appliance Brands</b> n=86, sse=68.33, depth=6</summary><ul><li><details open><summary title='Queries relate to kitchen appliances (hornos black friday, moulinex easy fry and grill xxl, horno negro, robot cocina cecotec nuevo, microondas gris) and furniture (mesa plegable).'><b>Kitchen Appliances &amp; Furniture</b> n=15, sse=11.50, depth=7</summary><ul><li class='q '>hornos black friday</li>
+<li class='q '>molinillo café</li></ul></details></li><li><details open><summary title='Este nodo se centra en electrodomésticos de cocina (batidoras, grifos) y hornos, con marcas específicas como Cecotec y Balay.'><b>Electrodomésticos y Cocina</b> n=86, sse=68.33, nivel=6</summary><ul><li><details open><summary title='Las consultas se centran en electrodomésticos de cocina (hornos, robots, microondas) y mobiliario (mesa plegable).'><b>Electrodomésticos de Cocina y Muebles</b> n=15, sse=11.50, nivel=7</summary><ul><li class='q '>hornos black friday</li>
 <li class='q '>moulinex easy fry and grill xxl</li>
 <li class='q '>horno negro</li>
 <li class='q zero'>robot cocina cecotec nuevo</li>
@@ -51,7 +51,7 @@
 <li class='q '>centro planchado cecotec</li>
 <li class='q '>microondas negro</li>
 <li class='q '>cristal templado google pixel</li>
-<li class='q '>cecotec mambo touch</li></ul></details></li><li><details open><summary title='This node clusters queries for various kitchen appliances like blenders, faucets, compact ovens, and personal care devices (molders), indicating a focus on home goods and cooking.'><b>Kitchen Appliances and Fixtures</b> n=71, sse=54.83, depth=7</summary><ul><li><details open><summary title='This node focuses on kitchen appliances such as blenders (ninja batidora vaso, batidora vaso ufesa sunset edition), ovens (horno compacto balay, horno teja), and stovetops (vitroceramica con mandos), along with kitchen fixtures (grifos cocina).'><b>Kitchen Appliances &amp; Fixtures</b> n=44, sse=32.49, depth=8</summary><ul><li class='q '>ninja batidora vaso</li>
+<li class='q '>cecotec mambo touch</li></ul></details></li><li><details open><summary title='Contiene una variedad de electrodomésticos de cocina (batidoras, grifos, horno) y climatización (ventilador), con énfasis en marcas específicas.'><b>Pequeños Electrodomésticos de Cocina y Hogar</b> n=71, sse=54.83, nivel=7</summary><ul><li><details open><summary title='Detalla tipos específicos de electrodomésticos de cocina como batidoras, grifos, hornos y vitrocerámicas.'><b>Electrodomésticos de Cocina Específicos</b> n=44, sse=32.49, nivel=8</summary><ul><li class='q '>ninja batidora vaso</li>
 <li class='q '>grifos cocina</li>
 <li class='q '>horno compacto balay</li>
 <li class='q zero'>vitroceramica con mandos</li>
@@ -94,7 +94,7 @@
 <li class='q '>toaster</li>
 <li class='q '>calculadora cientifica</li>
 <li class='q '>plancha vertical</li>
-<li class='q '>calentador gas butano</li></ul></details></li><li><details open><summary title='This node contains specific product searches for Cecotec appliances (cecotec forceclima 14600, cecotec batidora, cecotec moldeador, freidora aire cecotec cecofry) and a Hisense appliance (campana hisense), along with a specific Candy stovetop model (vitroceramica candy cdh 30).'><b>Cecotec &amp; Hisense Appliances</b> n=27, sse=17.65, depth=8</summary><ul><li class='q '>cecotec forceclima 14600</li>
+<li class='q '>calentador gas butano</li></ul></details></li><li><details open><summary title='Se enfoca en electrodomésticos de la marca Cecotec (batidoras, freidoras) y otros como campanas y vitrocerámicas.'><b>Electrodomésticos Cecotec y Otros</b> n=27, sse=17.65, nivel=8</summary><ul><li class='q '>cecotec forceclima 14600</li>
 <li class='q '>cecotec batidora</li>
 <li class='q '>cecotec moldeador</li>
 <li class='q '>campana hisense</li>
@@ -120,7 +120,7 @@
 <li class='q '>koenic toaster</li>
 <li class='q zero'>cecotec grandheat proclean</li>
 <li class='q '>cecotec plancha</li>
-<li class='q '>somier cama150</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='Queries focus on specific home appliance brands and parts like Rowenta ironing centers, OneBlade replacements, kitchen extractors, Bosch washing machines and dishwashers, and nose trimmers.'><b>Home Appliances &amp; Maintenance</b> n=121, sse=94.43, depth=5</summary><ul><li><details open><summary title='This node contains queries related to electrical services and printing equipment, indicating a need for both household and technological items.'><b>Electrician and Printing Supplies</b> n=28, sse=19.89, depth=6</summary><ul><li class='q zero'>novera electricista</li>
+<li class='q '>somier cama150</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='Contiene consultas de electrodomésticos grandes (centros de planchado, extractores de cocina, lavadoras, lavaplatos) y un producto de cuidado personal (recambio OneBlade, maquinilla de nariz).'><b>Electrodomésticos y Cuidado Personal</b> n=121, sse=94.43, nivel=5</summary><ul><li><details open><summary title='Este nodo agrupa productos relacionados con la electricidad (electricista, impresora) y dispositivos electrónicos personales (patín eléctrico, maquinillas de afeitar).'><b>Electricidad y Electrónica Personal</b> n=28, sse=19.89, nivel=6</summary><ul><li class='q zero'>novera electricista</li>
 <li class='q zero'>plotter corte en impresión</li>
 <li class='q '>maquinillas afeitar</li>
 <li class='q '>tinta impresora hp 303 negro</li>
@@ -147,7 +147,7 @@
 <li class='q '>maquina coser singer</li>
 <li class='q '>maquinas coser alfa</li>
 <li class='q '>mamta electrica</li>
-<li class='q '>impresoras multifuncion depósito tinta</li></ul></details></li><li><details open><summary title='Queries like &#x27;centro planchado rowenta&#x27;, &#x27;recambio one blade&#x27;, &#x27;extractor cocina&#x27;, &#x27;lavadora bosch serie&#x27;, &#x27;lavaplatos bosch&#x27;, and &#x27;maquinilla nariz&#x27; focus on specific appliance brands and repair/maintenance items.'><b>Home and Kitchen Appliances Maintenance</b> n=93, sse=69.27, depth=6</summary><ul><li><details open><summary title='This node groups together appliances for laundry (steam irons, washing machines, dishwashers) and hair styling (hair straighteners).'><b>Laundry and Hair Styling Appliances</b> n=40, sse=27.18, depth=7</summary><ul><li class='q '>centro planchado rowenta</li>
+<li class='q '>impresoras multifuncion depósito tinta</li></ul></details></li><li><details open><summary title='Este nodo agrupa consultas sobre electrodomésticos de cocina (extractor, lavadora, lavaplatos), cuidado personal (recambio OneBlade, maquinilla de nariz) y planchado.'><b>Electrodomésticos y Hogar</b> n=93, sse=69.27, nivel=6</summary><ul><li><details open><summary title='Agrupa electrodomésticos para el hogar relacionados con el lavado (lavadoras, lavaplatos, centros de planchado) y herramientas para el cuidado del cabello (planchas).'><b>Electrodomésticos de Lavado y Cuidado del Cabello</b> n=40, sse=27.18, nivel=7</summary><ul><li class='q '>centro planchado rowenta</li>
 <li class='q '>lavadora bosch serie</li>
 <li class='q zero'>lavaplatos bosch</li>
 <li class='q '>planchas el pelo</li>
@@ -186,7 +186,7 @@
 <li class='q '>lavadora whirlpool ffb11469 bv spt</li>
 <li class='q zero'>plancha pelo inalámbrica</li>
 <li class='q '>lavavajillas compacto blanco 55</li>
-<li class='q '>secadores pelo ceocotec</li></ul></details></li><li><details open><summary title='Queries in this node are focused on personal care items like razor replacements and nose trimmers, as well as different types of vacuum cleaners.'><b>Personal Grooming and Vacuum Cleaners</b> n=53, sse=37.25, depth=7</summary><ul><li class='q '>recambio one blade</li>
+<li class='q '>secadores pelo ceocotec</li></ul></details></li><li><details open><summary title='Este nodo cubre productos de cuidado personal (maquinillas de afeitar, cortapelos) y aparatos de limpieza del hogar (extractores, aspiradores).'><b>Cuidado Personal y Limpieza del Hogar</b> n=53, sse=37.25, nivel=7</summary><ul><li class='q '>recambio one blade</li>
 <li class='q '>extractor cocina</li>
 <li class='q '>maquinilla nariz</li>
 <li class='q '>cortadora pelo</li>
@@ -235,7 +235,7 @@
 <li class='q zero'>grifo termostático</li>
 <li class='q '>aspiradoras dyson</li>
 <li class='q '>cuchilla afeitadora</li>
-<li class='q '>aspirador con bolsa</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='Queries relate to home appliances such as air conditioners, portable refrigerators, and security cameras, indicating a focus on household needs and convenience.'><b>Home Appliances &amp; Refrigeration</b> n=101, sse=73.81, depth=4</summary><ul><li><details open><summary title='This node lists various home appliances, particularly laundry and kitchen items, alongside sewing machines.'><b>Home Appliances and Sewing Machines</b> n=54, sse=38.01, depth=5</summary><ul><li class='q '>rea condicionados</li>
+<li class='q '>aspirador con bolsa</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='Las consultas se refieren a electrodomésticos como neveras, termos y sistemas de aire acondicionado, además de cámaras de seguridad para el hogar.'><b>Electrodomésticos y Hogar</b> n=101, sse=73.81, nivel=4</summary><ul><li><details open><summary title='Las consultas se refieren principalmente a electrodomésticos como freidoras de aire, lavadoras, secadoras y remalladoras, indicando una clara necesidad de equipamiento para el hogar.'><b>Electrodomésticos</b> n=54, sse=38.01, nivel=5</summary><ul><li class='q '>rea condicionados</li>
 <li class='q '>air fryer vidrio</li>
 <li class='q '>lavadora secadora</li>
 <li class='q '>remalladora</li>
@@ -284,7 +284,7 @@
 <li class='q '>secador ghd</li>
 <li class='q '>lavadora 14 kilos</li>
 <li class='q '>colchón hinchable</li>
-<li class='q '>compresores</li></ul></details></li><li><details open><summary title='Queries include &#x27;nevera electrica portatil&#x27;, &#x27;termo cafe&#x27;, &#x27;frost free fridge freezer&#x27;, and &#x27;frigorifico combi&#x27;, indicating a focus on cooling and food storage devices.'><b>Portable Refrigeration and Appliances</b> n=47, sse=26.14, depth=5</summary><ul><li class='q '>nevera electrica portatil</li>
+<li class='q '>compresores</li></ul></details></li><li><details open><summary title='Consultas sobre neveras eléctricas portátiles, termos de café, frigoríficos y neveras, indicando un enfoque en almacenamiento y conservación de alimentos y bebidas.'><b>Refrigeración y Bebidas</b> n=47, sse=26.14, nivel=5</summary><ul><li class='q '>nevera electrica portatil</li>
 <li class='q '>termo cafe</li>
 <li class='q '>camera sguridad</li>
 <li class='q '>frost free fridge freezer</li>
@@ -330,7 +330,7 @@
 <li class='q '>frigorifico americano haier</li>
 <li class='q '>nevera portátil</li>
 <li class='q '>hornos pequeños</li>
-<li class='q '>frigorífico americano</li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='This node focuses on audio accessories (&#x27;earpods lightning&#x27;, &#x27;cascos audio&#x27;) and connectivity devices (&#x27;amplificiador wifi&#x27;, &#x27;carplay wifi&#x27;).'><b>Audio &amp; Connectivity Accessories</b> n=302, sse=278.54, depth=3</summary><ul><li><details open><summary title='Queries involve charging types, car technology, portable water bottles, wireless headphones, drones, and portable air conditioners.'><b>Gadgets and Portable Electronics</b> n=175, sse=162.89, depth=4</summary><ul><li><details open><summary title='This node covers a variety of electronic gadgets for entertainment and general use, such as tinted bottles, Switch headphones, DJI drones, TV LED lights, PlayStation game cards, and car stereos.'><b>Electronics &amp; Entertainment Gadgets</b> n=101, sse=94.20, depth=5</summary><ul><li><details open><summary title='This node groups together various display technologies and media playback devices, including TV lights, gaming consoles, car radios, monitors, projector screens, and DVD players.'><b>Display &amp; Media Playback Devices</b> n=45, sse=38.02, depth=6</summary><ul><li class='q '>luz led televisor</li>
+<li class='q '>frigorífico americano</li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='Este nodo se centra en accesorios para conectividad inalámbrica, audio y periféricos de streaming.'><b>Accesorios de Conectividad y Audio</b> n=302, sse=278.54, nivel=3</summary><ul><li><details open><summary title='Contiene búsquedas de accesorios diversos como cargadores (cargador tipo), adaptadores (carplay wifi), botellas (tints colo), auriculares (cascos inalámbricos), drones (dji nero) y climatización (aire acondicionado portatil).'><b>Accesorios electrónicos y climatización</b> n=175, sse=162.89, nivel=4</summary><ul><li><details open><summary title='Contiene una variedad de productos como drones, luces LED para TV, juegos de PlayStation, radios para coche y botellas.'><b>Electrónica de Consumo y Ocio</b> n=101, sse=94.20, nivel=5</summary><ul><li><details open><summary title='Este nodo agrupa productos relacionados con la visualización y reproducción de contenido, como monitores, proyectores y reproductores de DVD.'><b>Pantallas y Entretenimiento Audiovisual</b> n=45, sse=38.02, nivel=6</summary><ul><li class='q '>luz led televisor</li>
 <li class='q zero'>juegos play station ficha combat</li>
 <li class='q '>radio pantalla coche</li>
 <li class='q '>monitor gamer</li>
@@ -374,7 +374,7 @@
 <li class='q '>consola retro</li>
 <li class='q '>accesorios escritorio</li>
 <li class='q '>televisor 86 pulgadas</li>
-<li class='q zero'>pantalla ecoextrem</li></ul></details></li><li><details open><summary title='Queries cover home appliances (microwave, dumbbells) and entertainment accessories (headphones, drone, phone cases).'><b>Home Appliances &amp; Entertainment Gear</b> n=56, sse=51.16, depth=6</summary><ul><li><details open><summary title='This node includes hobby items (dron dji nero), fitness equipment (banco musculacion multiestacion), children&#x27;s items (cepillo dientes infantil, silla bebé), and gift cards (tarjeta regalo zalando), suggesting a focus on personal and family-related purchases.'><b>Leisure &amp; Family Products</b> n=18, sse=15.49, depth=7</summary><ul><li class='q zero'>dron dji nero</li>
+<li class='q zero'>pantalla ecoextrem</li></ul></details></li><li><details open><summary title='Este nodo cubre equipamiento para ejercicio (bancos de musculación) y accesorios para dispositivos (fundas, cascos) junto con otros artículos.'><b>Equipamiento Deportivo y Accesorios</b> n=56, sse=51.16, nivel=6</summary><ul><li><details open><summary title='Agrupa artículos de ocio (dron, banco de musculación), productos para bebés (silla de bebé) y accesorios (tarjeta regalo, correa de reloj).'><b>Ocio, Bebés y Accesorios</b> n=18, sse=15.49, nivel=7</summary><ul><li class='q zero'>dron dji nero</li>
 <li class='q '>banco musculacion multiestacion</li>
 <li class='q '>cepillo dientes infantil</li>
 <li class='q zero'>tarjeta regalo zalando</li>
@@ -391,7 +391,7 @@
 <li class='q '>ebooks black friday</li>
 <li class='q '>hamma dock station</li>
 <li class='q '>mini dron</li>
-<li class='q '>silla corsair</li></ul></details></li><li><details open><summary title='This node contains queries related to gaming (Nintendo Switch accessories, games) and kitchen appliances (microwave), alongside specific item queries like a bottle and a phone case.'><b>Gaming Accessories and Kitchenware</b> n=38, sse=34.02, depth=7</summary><ul><li class='q '>botella tints colo</li>
+<li class='q '>silla corsair</li></ul></details></li><li><details open><summary title='Incluye accesorios específicos para consolas (Switch), componentes de audio (cascos), electrodomésticos (microondas) y otros artículos electrónicos.'><b>Accesorios para Videojuegos y Electrónica Diversa</b> n=38, sse=34.02, nivel=7</summary><ul><li class='q '>botella tints colo</li>
 <li class='q '>cascos inalámbrico swich</li>
 <li class='q '>microondas integrable</li>
 <li class='q '>funda kobe clara</li>
@@ -428,7 +428,7 @@
 <li class='q '>mc book air</li>
 <li class='q zero'>honeycomb aeronautical</li>
 <li class='q '>cable ethernet cat</li>
-<li class='q '>mascara led</li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='Queries include car chargers, solar chargers, USB adapters, and portable air conditioners, all related to mobile devices and their power needs.'><b>Mobile and Charging Accessories</b> n=74, sse=61.36, depth=5</summary><ul><li><details open><summary title='This node contains queries related to chargers, solar power banks, and USB port duplicators, all focused on powering and charging devices on the go.'><b>Portable Power &amp; Charging Solutions</b> n=40, sse=32.00, depth=6</summary><ul><li class='q '>cargador tipo</li>
+<li class='q '>mascara led</li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='Las consultas incluyen cargadores de diversos tipos (tipo, solar, USB) y adaptadores, lo que sugiere una necesidad de conectar y alimentar dispositivos electrónicos.'><b>Accesorios de carga y conectividad</b> n=74, sse=61.36, nivel=5</summary><ul><li><details open><summary title='Las consultas giran en torno a cargadores, adaptadores USB, duplicadores de puertos y power banks solares, indicando una necesidad de soluciones de energía y expansión de puertos.'><b>Carga y Conectividad USB</b> n=40, sse=32.00, nivel=6</summary><ul><li class='q '>cargador tipo</li>
 <li class='q '>carplay wifi</li>
 <li class='q '>carregador solar</li>
 <li class='q '>adaptador tipo usb</li>
@@ -467,7 +467,7 @@
 <li class='q '>cable carga rápida tipo</li>
 <li class='q '>cable micro jack</li>
 <li class='q '>cable hdmi tipo</li>
-<li class='q '>usb wifi</li></ul></details></li><li><details open><summary title='Queries focus on portable air conditioners, refurbished laptops, convertible laptops, portable thermoses, electric scooters, and laptop stands, indicating a theme of portable and mobile solutions.'><b>Portable Devices &amp; Personal Mobility</b> n=34, sse=23.96, depth=6</summary><ul><li class='q '>aire acondicionado portatil</li>
+<li class='q '>usb wifi</li></ul></details></li><li><details open><summary title='Incluye aires acondicionados portátiles, portátiles reacondicionados/convertibles, termos y patinetes eléctricos, enfocándose en la portabilidad y la movilidad.'><b>Electrónica Portátil y Movilidad</b> n=34, sse=23.96, nivel=6</summary><ul><li class='q '>aire acondicionado portatil</li>
 <li class='q '>portatil reacondicionado</li>
 <li class='q '>portatil convertible</li>
 <li class='q '>termo portatil</li>
@@ -500,7 +500,7 @@
 <li class='q '>móvil plegable</li>
 <li class='q '>patinete eléctrico barato</li>
 <li class='q zero'>maletín piloto</li>
-<li class='q '>soporte el móvil coche</li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='This node groups queries for audio accessories like earphones and headphones, along with connectivity devices and streaming equipment, suggesting an interest in enhancing audio and digital experience.'><b>Audio &amp; Connectivity Accessories</b> n=127, sse=103.71, depth=4</summary><ul><li><details open><summary title='Queries focus on accessories that enhance connectivity and audio, such as Wi-Fi amplifiers, Earpods, audio headphones, car radio adapters, and noise-cancelling microphones.'><b>Audio &amp; Connectivity Accessories</b> n=89, sse=64.86, depth=5</summary><ul><li><details open><summary title='Queries include amplifiers, radios, audio recorders, and WiFi adapters, all relating to enhancing or connecting audio and network devices.'><b>Audio &amp; Connectivity Accessories</b> n=43, sse=32.21, depth=6</summary><ul><li class='q '>amplificiador wifi antenas</li>
+<li class='q '>soporte el móvil coche</li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='Este nodo agrupa consultas relacionadas con audio (cascos, earpods), amplificadores de señal y adaptadores para conectar dispositivos.'><b>Accesorios de Audio y Conexión</b> n=127, sse=103.71, nivel=4</summary><ul><li><details open><summary title='Agrupa amplificadores de WiFi, auriculares (earpods, cascos), adaptadores de radio y micrófonos, todos relacionados con la mejora de la conexión o la experiencia de audio.'><b>Audio y Conectividad</b> n=89, sse=64.86, nivel=5</summary><ul><li><details open><summary title='Este nodo agrupa consultas sobre amplificadores Wi-Fi, antenas, adaptadores de radio y grabadoras de audio, lo que sugiere un enfoque en la mejora de la conectividad y la captura de sonido.'><b>Accesorios Audio/Red Wi-Fi</b> n=43, sse=32.21, nivel=6</summary><ul><li class='q '>amplificiador wifi antenas</li>
 <li class='q zero'>adaptador radio seat</li>
 <li class='q '>amplificador wifi</li>
 <li class='q '>grabadora audio</li>
@@ -542,7 +542,7 @@
 <li class='q '>monitores 120 hz</li>
 <li class='q '>campana integrada</li>
 <li class='q '>proyectores móvil</li>
-<li class='q '>receptor bluetooth</li></ul></details></li><li><details open><summary title='Queries are all related to audio accessories such as headphones, earphones, and microphones with noise-canceling features.'><b>Audio &amp; Listening Devices</b> n=46, sse=26.83, depth=6</summary><ul><li class='q '>earpods lightning</li>
+<li class='q '>receptor bluetooth</li></ul></details></li><li><details open><summary title='Este nodo se centra en productos de audio, especialmente auriculares, incluyendo tipos específicos como los diseñados para natación o con cancelación de ruido.'><b>Audio y Auriculares</b> n=46, sse=26.83, nivel=6</summary><ul><li class='q '>earpods lightning</li>
 <li class='q '>cascos audio</li>
 <li class='q '>microfono cancelación ruido activa</li>
 <li class='q '>auriculares natacion</li>
@@ -587,7 +587,7 @@
 <li class='q zero'>auriculares inter craneal</li>
 <li class='q '>auriculares inalambricos con microfono</li>
 <li class='q '>auriculares inalambricos noise cancel</li>
-<li class='q '>auriculares inalámbricos diadema</li></ul></details></li></ul></details></li><li><details open><summary title='Queries like &#x27;camara streamer&#x27;, &#x27;camara instantanea polaroid&#x27;, &#x27;digital camera&#x27;, &#x27;cámara fotos kodac&#x27;, and &#x27;cámara polaroid&#x27; clearly point to photographic equipment.'><b>Photography and Imaging Devices</b> n=38, sse=22.37, depth=5</summary><ul><li class='q '>camara streamer</li>
+<li class='q '>auriculares inalámbricos diadema</li></ul></details></li></ul></details></li><li><details open><summary title='Este nodo agrupa cámaras de distintos tipos (streamer, instantánea, digital, Polaroid, Kodak) y proyectores.'><b>Fotografía y Proyección</b> n=38, sse=22.37, nivel=5</summary><ul><li class='q '>camara streamer</li>
 <li class='q '>camara instantanea polaroid</li>
 <li class='q '>digital camera</li>
 <li class='q zero'>cámara fotos kodac</li>
@@ -624,7 +624,7 @@
 <li class='q '>camaras vigilancia exterior</li>
 <li class='q '>cámara osmo</li>
 <li class='q '>cámara fotográfica</li>
-<li class='q '>bolsa camara</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='This node includes gaming (&#x27;crew motorfest&#x27;, &#x27;final fantasy if&#x27;), laptops (&#x27;mac book&#x27;), and personal measurement devices (&#x27;báscula corporal&#x27;).'><b>Gaming &amp; Personal Devices</b> n=543, sse=501.38, depth=2</summary><ul><li><details open><summary title='This node contains a mix of less specific or diverse queries including tech standards (&#x27;thunderbolt&#x27;), appliance types (&#x27;la avajillas&#x27;), and general items (&#x27;recibos&#x27;, &#x27;drones&#x27;).'><b>Miscellaneous Electronics &amp; Services</b> n=278, sse=234.88, depth=3</summary><ul><li><details open><summary title='This node includes searches for technical terms like Thunderbolt, general IT components like &#x27;la avajillas&#x27; (likely related to dishwashers, a home appliance), drones, and processor brands like Intel.'><b>Technology Components and Services</b> n=191, sse=151.28, depth=4</summary><ul><li><details open><summary title='This node contains terms related to technology infrastructure and components like Thunderbolt, Intel, and MagSafe, as well as less clear items that might be part of a tech context.'><b>Connectivity &amp; Tech Components</b> n=126, sse=96.34, depth=5</summary><ul><li><details open><summary title='This node features brand names (Intel, Schneider) and technology-related terms (PLC, Pixle, Firestivk) possibly related to IT services or components.'><b>Tech Brands &amp; Services</b> n=38, sse=29.35, depth=6</summary><ul><li class='q '>recibos</li>
+<li class='q '>bolsa camara</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='Consultas más específicas sobre ordenadores (Mac Book, portátiles) y videojuegos (Crew Motorfest, Final Fantasy).'><b>Informática y Videojuegos Específicos</b> n=543, sse=501.38, nivel=2</summary><ul><li><details open><summary title='Este nodo contiene una mezcla de términos tecnológicos, incluyendo conectividad, dispositivos de audio y elementos más genéricos.'><b>Diversos Tecnológicos y Conectividad</b> n=278, sse=234.88, nivel=3</summary><ul><li><details open><summary title='Incluye términos tecnológicos generales (Thunderbolt, Intel), software/servicios (coros, recibos) y hardware específico (drones).'><b>Componentes y tecnología diversa</b> n=191, sse=151.28, nivel=4</summary><ul><li><details open><summary title='Incluye términos como Thunderbolt e Intel, pero también consultas no relacionadas directamente como lavavajillas y Coros, sugiriendo una categoría tecnológica amplia.'><b>Tecnología y Componentes</b> n=126, sse=96.34, nivel=5</summary><ul><li><details open><summary title='Incluye consultas sobre procesadores (Intel), tecnologías de red (PLC), y dispositivos de streaming (Fire Stick), así como términos de pago (Pixle) y marcas de componentes (Schneider).'><b>Componentes y Servicios Digitales</b> n=38, sse=29.35, nivel=6</summary><ul><li class='q '>recibos</li>
 <li class='q '>intel</li>
 <li class='q '>plc</li>
 <li class='q '>pixle</li>
@@ -661,7 +661,7 @@
 <li class='q '>naruto</li>
 <li class='q '>fotos</li>
 <li class='q '>playbstation</li>
-<li class='q '>pixel</li></ul></details></li><li><details open><summary title='Includes tech terms like &#x27;thunderbolt&#x27; and &#x27;magsafe&#x27; alongside gaming-related terms like &#x27;coros&#x27;, &#x27;pley&#x27; (likely PlayStation), and &#x27;forza&#x27;.'><b>Tech Connectivity and Gaming Platforms</b> n=88, sse=64.26, depth=6</summary><ul><li><details open><summary title='This node contains a diverse set of terms ranging from tech interfaces (Thunderbolt) to household items (dishwasher, pan) and abstract concepts (choir, foam), making it hard to define a single theme.'><b>Various Household and Tech Terms</b> n=56, sse=40.49, depth=7</summary><ul><li class='q '>thunderbolt</li>
+<li class='q '>pixel</li></ul></details></li><li><details open><summary title='Este nodo incluye términos genéricos de tecnología como &#x27;thunderbolt&#x27;, &#x27;magsafe&#x27;, y nombres de consolas/juegos (&#x27;pley&#x27;, &#x27;forza&#x27;), sugiriendo una categoría amplia de electrónica.'><b>Electrónica y Accesorios</b> n=88, sse=64.26, nivel=6</summary><ul><li><details open><summary title='Este nodo agrupa artículos variados que van desde componentes tecnológicos (Thunderbolt), electrodomésticos (lavavajillas), hasta elementos de ocio y uso general (coros, sartenes, foam).'><b>Artículos Diversos para el Hogar y Ocio</b> n=56, sse=40.49, nivel=7</summary><ul><li class='q '>thunderbolt</li>
 <li class='q '>la avajillas</li>
 <li class='q '>coros</li>
 <li class='q '>forza</li>
@@ -710,7 +710,7 @@
 <li class='q '>metaphor</li>
 <li class='q '>patin</li>
 <li class='q '>espejo</li>
-<li class='q '>reparacion</li></ul></details></li><li><details open><summary title='This node contains a collection of distinct brand or product names (Magsafe, Bellissima, Bigme, Scoop, Oseo) with no clear overarching theme other than being individual product identifiers.'><b>Brand &amp; Product Names</b> n=32, sse=21.68, depth=7</summary><ul><li class='q '>magsafe</li>
+<li class='q '>reparacion</li></ul></details></li><li><details open><summary title='Agrupa términos de marcas poco comunes y productos variados que no encajan claramente en otras categorías.'><b>Marcas y Productos Diversos</b> n=32, sse=21.68, nivel=7</summary><ul><li class='q '>magsafe</li>
 <li class='q '>pley</li>
 <li class='q '>bellissima</li>
 <li class='q '>bigme</li>
@@ -741,7 +741,7 @@
 <li class='q zero'>repisas</li>
 <li class='q '>appple</li>
 <li class='q '>doogee</li>
-<li class='q '>fallout</li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='This node covers a broad range of electronics and household items like drones, binoculars, vibrators, laptops, sterilizers, and computer brands.'><b>General Electronics and Appliances</b> n=65, sse=49.11, depth=5</summary><ul><li><details open><summary title='A very broad category encompassing portable computers, radios, printers, and keyboards, suggesting a general interest in electronic devices and computing hardware.'><b>General Electronics and Computing</b> n=15, sse=10.26, depth=6</summary><ul><li class='q '>drones</li>
+<li class='q '>fallout</li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='Este nodo abarca una variedad de dispositivos electrónicos y personales, desde ópticas (binoculares), juguetes sexuales (vibrador), hasta informática (portátil, ibuypower) y cuidado personal (esterilizador).'><b>Electrónica y dispositivos personales</b> n=65, sse=49.11, nivel=5</summary><ul><li><details open><summary title='Este nodo es una categoría más amplia que engloba diversos dispositivos electrónicos como drones, portátiles, radios, impresoras y teclados.'><b>Electrónica General</b> n=15, sse=10.26, nivel=6</summary><ul><li class='q '>drones</li>
 <li class='q '>portátil</li>
 <li class='q '>radio</li>
 <li class='q '>printers</li>
@@ -755,7 +755,7 @@
 <li class='q '>dualtron</li>
 <li class='q '>televisiones</li>
 <li class='q '>movil</li>
-<li class='q '>microfono</li></ul></details></li><li><details open><summary title='A diverse set of consumer electronics and gadgets including binoculars, sex toys, sterilizers, computer hardware, scooters, and hair styling tools.'><b>General Consumer Electronics &amp; Gadgets</b> n=50, sse=36.15, depth=6</summary><ul><li class='q '>binoculars</li>
+<li class='q '>microfono</li></ul></details></li><li><details open><summary title='Este nodo agrupa una colección heterogénea de artículos que van desde binoculares y vibradores hasta equipos de computación y herramientas de belleza.'><b>Artículos Varios y Ocio</b> n=50, sse=36.15, nivel=6</summary><ul><li class='q '>binoculars</li>
 <li class='q '>vibrador</li>
 <li class='q '>esterilizador</li>
 <li class='q '>ibuypower</li>
@@ -804,7 +804,7 @@
 <li class='q '>aire acondiciinado</li>
 <li class='q zero'>cocotero</li>
 <li class='q '>despertador</li>
-<li class='q '>alargador</li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='This node contains queries for specific model numbers of phones and TVs, suggesting users are looking for particular product iterations.'><b>Specific Model Electronics</b> n=87, sse=72.05, depth=4</summary><ul><li><details open><summary title='Includes specific model numbers (&#x27;s24fe 256&#x27;, &#x27;55u7&#x27;, &#x27;sg2005p-pd&#x27;), a quantity (&#x27;2500&#x27;), a type of beverage (&#x27;agua con gas&#x27;), and a date/number (&#x27;10 fe&#x27;), indicating a mix of product and potentially transactional queries.'><b>Specific Electronics and Consumables</b> n=41, sse=33.00, depth=5</summary><ul><li class='q '>s24fe 256</li>
+<li class='q '>alargador</li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='Este nodo agrupa consultas sobre modelos concretos de teléfonos (iPhone, Samsung A y S) y televisores (TV 24, 55U7).'><b>Modelos Específicos de Smartphones y TV</b> n=87, sse=72.05, nivel=4</summary><ul><li><details open><summary title='Contiene referencias a modelos de TV (&#x27;55u7&#x27;), códigos genéricos (&#x27;2500&#x27;, &#x27;sg2005p-pd&#x27;), y productos como &#x27;agua con gas&#x27; y componentes (&#x27;10 fe&#x27;), sugiriendo una mezcla de electrónica y otros artículos.'><b>Electrónica y Electrodomésticos Variados</b> n=41, sse=33.00, nivel=5</summary><ul><li class='q '>s24fe 256</li>
 <li class='q '>55u7</li>
 <li class='q '>2500</li>
 <li class='q '>agua con gas</li>
@@ -844,7 +844,7 @@
 <li class='q '>tq55q7f</li>
 <li class='q '>tdt</li>
 <li class='q '>tapo 2k</li>
-<li class='q '>m7</li></ul></details></li><li><details open><summary title='Queries are short alphanumeric codes and model numbers like &#x27;a25&#x27;, &#x27;ihone 13&#x27;, &#x27;a54&#x27;, &#x27;tv 24&#x27;, &#x27;11mm&#x27;, and &#x27;x870&#x27;, suggesting searches for specific electronic product identifiers.'><b>Electronic Device Identifiers</b> n=46, sse=36.46, depth=5</summary><ul><li class='q '>a25</li>
+<li class='q '>m7</li></ul></details></li><li><details open><summary title='Agrupa consultas sobre modelos de smartphones (&#x27;a25&#x27;, &#x27;ihone 13&#x27;, &#x27;a54&#x27;), televisores (&#x27;tv 24&#x27;) y componentes genéricos (&#x27;11mm&#x27;, &#x27;x870&#x27;).'><b>Dispositivos Móviles y Televisión</b> n=46, sse=36.46, nivel=5</summary><ul><li class='q '>a25</li>
 <li class='q '>ihone 13</li>
 <li class='q '>a54</li>
 <li class='q '>tv 24</li>
@@ -889,7 +889,7 @@
 <li class='q '>cecotec 8050</li>
 <li class='q '>34 monitor</li>
 <li class='q '>a6000</li>
-<li class='q '>nothing 3a</li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='Queries mention video games, computer brands, display models, foldable phones, smart scales, and game titles.'><b>Gaming and Entertainment Devices</b> n=265, sse=248.54, depth=3</summary><ul><li><details open><summary title='This node contains a mix of electronic devices, gaming-related queries, and home appliances. The queries suggest a broad interest in consumer electronics and leisure activities.'><b>Gadgets &amp; Entertainment</b> n=132, sse=117.83, depth=4</summary><ul><li><details open><summary title='Combines video game titles (&#x27;hogwarts legacy&#x27;, &#x27;metro exodus&#x27;) with tech product names (&#x27;ebook onyx&#x27;, &#x27;quad lock&#x27;, &#x27;asus tuf&#x27;) and a kitchen appliance (&#x27;vitro teka&#x27;). This suggests a broad interest in entertainment and technology.'><b>Gaming and Tech Gadgets</b> n=36, sse=30.36, depth=5</summary><ul><li class='q '>hogwarts legacy</li>
+<li class='q '>nothing 3a</li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='Incluye videojuegos (Crew Motorfest, Final Fantasy), dispositivos electrónicos (Mac Book, Galaxy Fold, 55u7025fkxxc) y básculas corporales.'><b>Electrónica de consumo y gaming</b> n=265, sse=248.54, nivel=3</summary><ul><li><details open><summary title='Este nodo agrupa consultas diversas que incluyen dispositivos tecnológicos como teléfonos plegables, básculas inteligentes, consolas de videojuegos, y electrodomésticos.'><b>Tecnología Variada</b> n=132, sse=117.83, nivel=4</summary><ul><li><details open><summary title='Incluye videojuegos (&#x27;hogwarts legacy&#x27;, &#x27;metro exodus&#x27;), dispositivos de lectura electrónica (&#x27;ebook onyx&#x27;), tecnología para móviles (&#x27;quad lock&#x27;) y componentes de PC (&#x27;asus tuf&#x27;).'><b>Entretenimiento y Tecnología Personal</b> n=36, sse=30.36, nivel=5</summary><ul><li class='q '>hogwarts legacy</li>
 <li class='q '>vitro teka</li>
 <li class='q zero'>metro exodus</li>
 <li class='q '>ebook onyx</li>
@@ -924,7 +924,7 @@
 <li class='q '>oneplus buds</li>
 <li class='q '>raton logitech</li>
 <li class='q '>cercotec</li>
-<li class='q '>eletta explore</li></ul></details></li><li><details open><summary title='Queries relate to smart home devices (Galaxy Fold, Echo Show, induction zones), gaming (Final Fantasy), and specific tech items like a spider pro controller.'><b>Smart Home &amp; Gaming</b> n=96, sse=84.91, depth=5</summary><ul><li><details open><summary title='Queries include specific gaming products (games, controllers) and mobile device models (Galaxy Fold), indicating a focus on gaming and mobile technology.'><b>Gaming &amp; Mobile Tech</b> n=39, sse=34.00, depth=6</summary><ul><li class='q '>galaxy fold</li>
+<li class='q '>eletta explore</li></ul></details></li><li><details open><summary title='Este nodo engloba dispositivos como Galaxy Fold, básculas corporales, sistemas Echo Show, mandos y referencias a videojuegos.'><b>Electrónica Diversa</b> n=96, sse=84.91, nivel=5</summary><ul><li><details open><summary title='Agrupa desde teléfonos plegables y mandos hasta videojuegos, pasando por sistemas de inducción y ratones gaming. Es un clúster diverso de tecnología y ocio.'><b>Tecnología y Entretenimiento Variado</b> n=39, sse=34.00, nivel=6</summary><ul><li class='q '>galaxy fold</li>
 <li class='q zero'>final fantasy if</li>
 <li class='q '>inducción zonas</li>
 <li class='q zero'>tarantula pro mando</li>
@@ -962,7 +962,7 @@
 <li class='q '>canon rebel</li>
 <li class='q '>garmin forerruner 255</li>
 <li class='q '>persona reload</li>
-<li class='q '>ultimate eats</li></ul></details></li><li><details open><summary title='This node contains a mix of smart home devices (Echo Show, smart lights) and personal electronics (smart scales, phones, tablets, and smart bands).'><b>Smart Home &amp; Personal Devices</b> n=57, sse=48.22, depth=6</summary><ul><li><details open><summary title='This node covers health-related items (báscula corporal, oral pro), a new phone model (honor 200), and common household appliances (olla express, aspira friega).'><b>Personal Care &amp; Home Essentials</b> n=26, sse=21.21, depth=7</summary><ul><li class='q '>báscula corporal</li>
+<li class='q '>ultimate eats</li></ul></details></li><li><details open><summary title='Incluye dispositivos para el hogar inteligente (básculas, altavoces, luces) y wearables (smartbands, relojes).'><b>Hogar Inteligente y Wearables</b> n=57, sse=48.22, nivel=6</summary><ul><li><details open><summary title='Combina productos de salud y bienestar (báscula, cepillo dental) con utensilios de cocina (olla express).'><b>Salud, Bienestar y Cocina</b> n=26, sse=21.21, nivel=7</summary><ul><li class='q '>báscula corporal</li>
 <li class='q '>honor 200</li>
 <li class='q '>luz tapo</li>
 <li class='q '>olla express</li>
@@ -987,7 +987,7 @@
 <li class='q '>movil honor</li>
 <li class='q '>dark souls</li>
 <li class='q '>silk epil</li>
-<li class='q zero'>taladro martillo</li></ul></details></li><li><details open><summary title='Queries include smart home devices (Echo Show, luz tapo), tablets (xioami pad), wearable accessories (correa xioami band), and home appliances (foam roller, siemens eq, qrevo curv).'><b>Home Electronics &amp; Appliances</b> n=31, sse=25.24, depth=7</summary><ul><li class='q '>echo show</li>
+<li class='q zero'>taladro martillo</li></ul></details></li><li><details open><summary title='Las consultas mencionan dispositivos para el hogar conectado (Echo Show, luz Tapo), pequeños electrodomésticos (robot de cocina, báscula) y utensilios de cocina.'><b>Hogar Inteligente y Electrodomésticos</b> n=31, sse=25.24, nivel=7</summary><ul><li class='q '>echo show</li>
 <li class='q '>xioami pad</li>
 <li class='q '>correa xioami band</li>
 <li class='q '>foam roller</li>
@@ -1017,7 +1017,7 @@
 <li class='q '>mando pro</li>
 <li class='q '>horario campanar</li>
 <li class='q '>play slime</li>
-<li class='q zero'>remo optó</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='Queries include a specific video game, computer brands, display models, storage devices (SSD), and e-reader accessories.'><b>Gaming, Storage, and E-readers</b> n=133, sse=123.36, depth=4</summary><ul><li><details open><summary title='This node contains game titles, computer hardware (MacBook, SSD), and specific model numbers for electronic devices, suggesting a focus on digital content and hardware.'><b>Electronics and Digital Media</b> n=74, sse=67.37, depth=5</summary><ul><li><details open><summary title='Queries include home cinema systems, SSD storage, and product codes suggesting specific electronic models, pointing towards home entertainment and data storage solutions.'><b>Home Entertainment &amp; Storage</b> n=37, sse=31.99, depth=6</summary><ul><li class='q zero'>crew motorfest</li>
+<li class='q zero'>remo optó</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='Incluye videojuegos (Crew Motorfest), equipos informáticos (Mac Book, SSD 1tb) y accesorios (funda ebook).'><b>Consolas, juegos y almacenamiento</b> n=133, sse=123.36, nivel=4</summary><ul><li><details open><summary title='Este nodo agrupa productos como videojuegos (Crew Motorfest), dispositivos electrónicos (Mac Book), componentes de almacenamiento (SSD 1TB) y accesorios como fundas para lectores electrónicos. También incluye identificadores de producto ambiguos que podrían ser electrónicos.'><b>Electrónica de consumo y almacenamiento</b> n=74, sse=67.37, nivel=5</summary><ul><li><details open><summary title='Las consultas se centran en sistemas de cine en casa, SSDs y referencias a nombres de productos (posiblemente de audio/vídeo o componentes).'><b>Audio/Vídeo y Almacenamiento</b> n=37, sse=31.99, nivel=6</summary><ul><li class='q zero'>crew motorfest</li>
 <li class='q '>55u7025fkxxc</li>
 <li class='q '>ssd 1tb</li>
 <li class='q '>rb53dg703ds9ef</li>
@@ -1053,7 +1053,7 @@
 <li class='q '>coches perros</li>
 <li class='q '>smh4ecx28e</li>
 <li class='q '>conga 11090</li>
-<li class='q '>wgh244a0es</li></ul></details></li><li><details open><summary title='This group contains queries for laptops (Mac Book), e-readers, gaming consoles (Xbox), and memory cards, all related to computing and portable media consumption.'><b>Computing &amp; Portable Media Devices</b> n=37, sse=32.10, depth=6</summary><ul><li class='q '>mac book</li>
+<li class='q '>wgh244a0es</li></ul></details></li><li><details open><summary title='Combina portátiles (Mac Book), accesorios para ebooks, consolas (Xbox), tarjetas de memoria y auriculares, apuntando a dispositivos de uso personal y expansión.'><b>Dispositivos Personales y Almacenamiento</b> n=37, sse=32.10, nivel=6</summary><ul><li class='q '>mac book</li>
 <li class='q '>funda ebook</li>
 <li class='q '>xbox</li>
 <li class='q '>tarjeta memoria</li>
@@ -1089,7 +1089,7 @@
 <li class='q '>m3 pro</li>
 <li class='q '>music sound maxi</li>
 <li class='q '>powerbook</li>
-<li class='q '>bascula comida</li></ul></details></li></ul></details></li><li><details open><summary title='Queries span across computing accessories (hub USB), sports equipment (mountain bike), audio devices (JBL speaker), and gaming controllers.'><b>Active Lifestyle and Audio Gear</b> n=59, sse=52.04, depth=5</summary><ul><li><details open><summary title='This node includes computer peripherals like USB hubs, SSDs, and mice, alongside kitchen appliances like deep fryers, indicating a mix of home office and kitchen tech.'><b>Computer Peripherals &amp; Kitchen Appliances</b> n=29, sse=24.84, depth=6</summary><ul><li class='q '>hub usb</li>
+<li class='q '>bascula comida</li></ul></details></li></ul></details></li><li><details open><summary title='Combina accesorios de conectividad (hub USB), productos de ocio (coches play, bicicleta montaña, DJ control), electrónica de audio (JBL Flipe) y gestión de tarjetas, indicando una mezcla de intereses.'><b>Accesorios y electrónica para ocio y uso general</b> n=59, sse=52.04, nivel=5</summary><ul><li><details open><summary title='Este nodo agrupa consultas sobre hubs USB, controladores DJ, televisores inteligentes (Smart TV), discos duros SSD y freidoras, indicando interés en periféricos y aparatos del hogar.'><b>Periféricos y Electrodomésticos</b> n=29, sse=24.84, nivel=6</summary><ul><li class='q '>hub usb</li>
 <li class='q '>dj control</li>
 <li class='q '>smrt tv</li>
 <li class='q '>disco duro ssd</li>
@@ -1117,7 +1117,7 @@
 <li class='q '>tarjeta gráfica 3060</li>
 <li class='q '>estufa aceite</li>
 <li class='q zero'>tractive gps</li>
-<li class='q '>televisión tcl</li></ul></details></li><li><details open><summary title='This node combines car-related queries (cars play, carplay screen) with portable audio devices (JBL speaker) and gaming (play pro), suggesting a blend of automotive tech and audio/gaming.'><b>Automotive &amp; Audio Gadgets</b> n=30, sse=24.28, depth=6</summary><ul><li class='q '>coches play</li>
+<li class='q '>televisión tcl</li></ul></details></li><li><details open><summary title='Las consultas abordan temas de coches (coches play, pantalla carplay), bicicletas y altavoces portátiles (JBL), sugiriendo interés en accesorios para vehículos y audio móvil.'><b>Automoción y Audio Portátil</b> n=30, sse=24.28, nivel=6</summary><ul><li class='q '>coches play</li>
 <li class='q '>bicicleta montaña</li>
 <li class='q '>jbl flipe</li>
 <li class='q '>activar tarjeta</li>
@@ -1146,7 +1146,7 @@
 <li class='q '>juegos sims</li>
 <li class='q '>jbl endurance race</li>
 <li class='q zero'>carrete fotos</li>
-<li class='q '>reprodutores musica</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='This node focuses on accessories for mobile devices (phone cases, wireless chargers) and laptops (&#x27;lenovo ideapad gen&#x27;).'><b>Mobile &amp; PC Accessories</b> n=820, sse=764.67, depth=1</summary><ul><li><details open><summary title='This cluster includes specific mobile phone parts (&#x27;oppo find x3 lite funda silicona&#x27;), chargers, and laptop storage (&#x27;portatil 1tb&#x27;).'><b>Mobile &amp; Laptop Components</b> n=431, sse=389.57, depth=2</summary><ul><li><details open><summary title='Queries include phone cases, laptop models, chargers, and specific phone variants.'><b>Mobile Accessories and Laptops</b> n=277, sse=256.24, depth=3</summary><ul><li><details open><summary title='This node combines searches for phone cases, laptop models, personal care device replacements, and specific HP printer models.'><b>Mobile and Printer Accessories</b> n=168, sse=150.18, depth=4</summary><ul><li><details open><summary title='This leaf node contains a mix of personal care items (shavers) and specific gaming laptop models.'><b>Personal Grooming and Gaming Laptops</b> n=56, sse=42.30, depth=5</summary><ul><li class='q '>philips one blade</li>
+<li class='q '>reprodutores musica</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='Este nodo se centra en accesorios para teléfonos móviles, pantallas y otros dispositivos electrónicos de consumo.'><b>Accesorios Móviles y Electrónica</b> n=820, sse=764.67, nivel=1</summary><ul><li><details open><summary title='Este nodo agrupa accesorios específicos para teléfonos móviles (fundas, cargadores inalámbricos) y portátiles (almacenamiento).'><b>Accesorios para Móviles y Portátiles</b> n=431, sse=389.57, nivel=2</summary><ul><li><details open><summary title='Este nodo agrupa consultas sobre fundas para móviles (Oppo Find X3 Lite), portátiles (Lenovo Ideapad Gen, portatil 1tb) y accesorios como cargadores (cargador usb 65w).'><b>Accesorios móviles y portátiles</b> n=277, sse=256.24, nivel=3</summary><ul><li><details open><summary title='Agrupa fundas de móvil (Oppo Find X3 Lite), portátiles (Lenovo Ideapad Gen) y impresoras HP (HP LaserJet, HP Color Laser).'><b>Accesorios móviles y periféricos HP</b> n=168, sse=150.18, nivel=4</summary><ul><li><details open><summary title='Agrupa productos de cuidado personal (afeitadoras, Philips One Blade) con impresoras de alta gama y equipos de gaming (portátiles ASUS ROG, HP Omen).'><b>Cuidado personal y periféricos de impresión</b> n=56, sse=42.30, nivel=5</summary><ul><li class='q '>philips one blade</li>
 <li class='q '>hp laserjet m234dwe</li>
 <li class='q '>hp color laser mfp 178nw</li>
 <li class='q '>asus rog ph</li>
@@ -1195,7 +1195,7 @@
 <li class='q '>impresora hp envy</li>
 <li class='q '>reproductor dvd philips</li>
 <li class='q '>laptos hp</li>
-<li class='q '>cafetera philips 5400</li></ul></details></li><li><details open><summary title='Queries are about specific models and configurations of mobile phones (Oppo, X7 Pro) and laptops (Lenovo IdeaPad, MacBook Pro) including accessories like screen protectors.'><b>Mobile &amp; Laptop Specifics</b> n=112, sse=99.16, depth=5</summary><ul><li><details open><summary title='Queries include phone protectors, laptop accessories, and wearable tech like smartwatches and action cameras.'><b>Protective Accessories &amp; Electronics</b> n=58, sse=49.85, depth=6</summary><ul><li><details open><summary title='Queries include smartwatches (Xplora X6 Play, X7 Pro), phone accessories (protector lente x4), and a laptop OS (portatil windows 11). The specific phone models (go pro 11, opoo a5 pro) also point towards consumer electronics.'><b>Smart Devices &amp; Accessories</b> n=37, sse=29.39, depth=7</summary><ul><li class='q '>x7 pro</li>
+<li class='q '>cafetera philips 5400</li></ul></details></li><li><details open><summary title='Este nodo incluye fundas para móviles Oppo y protectores de pantalla, así como modelos de portátiles Lenovo y un MacBook Pro específico.'><b>Portátiles y Accesorios Móviles</b> n=112, sse=99.16, nivel=5</summary><ul><li><details open><summary title='Este nodo agrupa una variedad de dispositivos electrónicos personales y accesorios como teléfonos, protectores, portátiles y relojes inteligentes.'><b>Electrónica Personal Diversa</b> n=58, sse=49.85, nivel=6</summary><ul><li><details open><summary title='Las consultas incluyen dispositivos electrónicos como teléfonos, relojes inteligentes, portátiles y protectores de pantallas.'><b>Electrónica y Accesorios</b> n=37, sse=29.39, nivel=7</summary><ul><li class='q '>x7 pro</li>
 <li class='q zero'>protector lente x4</li>
 <li class='q '>go pro 11</li>
 <li class='q zero'>xplora x6 play teléfono reloj 4g rosa</li>
@@ -1231,7 +1231,7 @@
 <li class='q zero'>one plus 11r</li>
 <li class='q zero'>4411 single</li>
 <li class='q '>carcasa go pro hero 13</li>
-<li class='q '>f3 pro</li></ul></details></li><li><details open><summary title='Queries include specific computer models and configurations (macbook pro 512 ssd 16 ram), software bundles (office hogar empresas 2016 mac), cameras (kodak pixpro fz55), networking equipment (deco e4 3-pack), displays (televisores 24 pulgadas), and phone accessories (phon 15 carcasa).'><b>Computer Hardware &amp; Peripherals</b> n=21, sse=17.22, depth=7</summary><ul><li class='q '>macbook pro 512 ssd 16 ram</li>
+<li class='q '>f3 pro</li></ul></details></li><li><details open><summary title='Incluye consultas sobre portátiles (MacBook Pro), software (Office), accesorios de fotografía (Kodak Pixpro), redes (deco E4) y televisores.'><b>Informática y Televisión</b> n=21, sse=17.22, nivel=7</summary><ul><li class='q '>macbook pro 512 ssd 16 ram</li>
 <li class='q zero'>office hogar empresas 2016 mac</li>
 <li class='q '>kodak pixpro fz55</li>
 <li class='q '>deco e4 3-pack</li>
@@ -1251,7 +1251,7 @@
 <li class='q '>fc 26 ps4</li>
 <li class='q '>iphoene 16 256</li>
 <li class='q '>monitor 49 pulgadas</li>
-<li class='q '>peaq ptv 32gh-5025c</li></ul></details></li></ul></details></li><li><details open><summary title='All queries specifically mention Lenovo products, including laptops (Ideapad, Legion) and tablets.'><b>Lenovo Laptops &amp; Tablets</b> n=54, sse=43.19, depth=6</summary><ul><li class='q '>oppo find x3 lite funda silicona</li>
+<li class='q '>peaq ptv 32gh-5025c</li></ul></details></li></ul></details></li><li><details open><summary title='Este nodo se enfoca específicamente en portátiles y tablets de la marca Lenovo, incluyendo modelos específicos y tamaños de pantalla.'><b>Portátiles y Tablets Lenovo</b> n=54, sse=43.19, nivel=6</summary><ul><li class='q '>oppo find x3 lite funda silicona</li>
 <li class='q '>lenovo ideapad gen</li>
 <li class='q '>lenovo 15 pulgadas</li>
 <li class='q '>lenovo legion pro</li>
@@ -1300,7 +1300,7 @@
 <li class='q '>ordenador sobremesa pccom lite amd ryzen 5500 16gb 1tb ssd rtx 5060 windows 11 home</li>
 <li class='q '>lenovo idea tab pro 12 teclado</li>
 <li class='q '>evvo h10</li>
-<li class='q '>ep-t2510nwegeu</li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='This node combines queries for laptops, charging accessories, gaming mice, and console games, pointing to users interested in computing power and gaming.'><b>Computing &amp; Gaming Peripherals</b> n=109, sse=95.64, depth=4</summary><ul><li><details open><summary title='Queries include specific gaming consoles (PS5, Xbox), games, and related accessories (controllers, cases).'><b>Gaming Consoles and Peripherals</b> n=53, sse=42.47, depth=5</summary><ul><li class='q '>logitech 502</li>
+<li class='q '>ep-t2510nwegeu</li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='Este grupo incluye consultas sobre portátiles, accesorios de gaming (ratón, consola) y tablets, sugiriendo un interés en informática y entretenimiento digital.'><b>Computación y Gaming</b> n=109, sse=95.64, nivel=4</summary><ul><li><details open><summary title='Este nodo agrupa consultas relacionadas con consolas de videojuegos (PS5, Xbox Series), juegos (Witcher), y accesorios específicos como fundas para consolas.'><b>Consolas y accesorios de gaming</b> n=53, sse=42.47, nivel=5</summary><ul><li class='q '>logitech 502</li>
 <li class='q '>ps5 witcher</li>
 <li class='q '>google píxel pro</li>
 <li class='q '>logitech combo touch</li>
@@ -1349,7 +1349,7 @@
 <li class='q '>lego minecraft</li>
 <li class='q '>nintendo switch olet</li>
 <li class='q '>nintendo switch animal crossing</li>
-<li class='q '>nintendo lite</li></ul></details></li><li><details open><summary title='Queries focus on portable computers (laptops, tablets), storage devices (USB, external hard drives), and mobile phones.'><b>Portable Computing and Storage</b> n=56, sse=44.85, depth=5</summary><ul><li class='q '>portatil 1tb</li>
+<li class='q '>nintendo lite</li></ul></details></li><li><details open><summary title='Este nodo se centra en dispositivos de computación (portátil, Surface tablet), almacenamiento (USB, disco duro externo) y teléfonos móviles (Google Pixel).'><b>Informática y dispositivos móviles</b> n=56, sse=44.85, nivel=5</summary><ul><li class='q '>portatil 1tb</li>
 <li class='q '>cargador usb 65w</li>
 <li class='q '>microsoft surface tablet</li>
 <li class='q '>usb tipo 128 gb</li>
@@ -1398,7 +1398,7 @@
 <li class='q '>pc portatil mac</li>
 <li class='q '>micro sd switch</li>
 <li class='q '>teclado inalambrico tablet</li>
-<li class='q '>disco duro externo 4tb</li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='This node focuses on Apple accessories like wireless chargers and iPhone cables, as well as general phone brands and models.'><b>Apple and Mobile Device Accessories</b> n=154, sse=108.11, depth=3</summary><ul><li><details open><summary title='All queries are centered around Apple&#x27;s mobile devices (iPhones) and tablets (iPads), suggesting a strong preference for this brand&#x27;s portable electronics.'><b>Apple Mobile &amp; Tablets</b> n=110, sse=69.25, depth=4</summary><ul><li><details open><summary title='All queries relate to different generations and models of iPads, including accessories like keyboards and cases (&#x27;ipad air 10&#x27;, &#x27;ipad 11 generacion&#x27;, &#x27;teclado ipad&#x27;, &#x27;funda ipad 10 generacion&#x27;).'><b>Apple iPad and Accessories</b> n=27, sse=12.62, depth=5</summary><ul><li class='q '>ipad air 10</li>
+<li class='q '>disco duro externo 4tb</li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='Contiene búsquedas de accesorios para iPhone (cargador inalámbrico, cable, funda) y otros teléfonos (Asus phone, phone16 pro max).'><b>Accesorios Apple y móviles</b> n=154, sse=108.11, nivel=3</summary><ul><li><details open><summary title='Las consultas se centran principalmente en iPhones y iPads, indicando un interés en la marca Apple y dispositivos móviles de alta gama.'><b>Dispositivos Apple y Teléfonos</b> n=110, sse=69.25, nivel=4</summary><ul><li><details open><summary title='Consultas centradas en iPads (Air, 11ª generación) y sus accesorios (teclado, funda).'><b>Dispositivos Apple y Accesorios</b> n=27, sse=12.62, nivel=5</summary><ul><li class='q '>ipad air 10</li>
 <li class='q '>ipad 11 generacion</li>
 <li class='q '>ipad 2022</li>
 <li class='q '>ipad 11 gen 256 gb</li>
@@ -1424,7 +1424,7 @@
 <li class='q '>ipad air reacondicionado</li>
 <li class='q '>funda ipad air m3 13</li>
 <li class='q '>ipad 11 air 128 gb</li>
-<li class='q '>ipad pro m4</li></ul></details></li><li><details open><summary title='This leaf node consists of queries exclusively for specific iPhone models (iPhone 15 series, iPhone 16 series) and associated cables.'><b>Specific iPhone Models &amp; Cables</b> n=83, sse=48.20, depth=5</summary><ul><li class='q '>asus phone</li>
+<li class='q '>ipad pro m4</li></ul></details></li><li><details open><summary title='Este nodo se centra exclusivamente en modelos de iPhone (iPhone XR, iPhone 15, iPhone 16) y el Asus Phone.'><b>Teléfonos Móviles Apple</b> n=83, sse=48.20, nivel=5</summary><ul><li class='q '>asus phone</li>
 <li class='q '>cable iphone xr</li>
 <li class='q '>phone16 pro max</li>
 <li class='q '>iphone 15 pro max 200 gb</li>
@@ -1473,7 +1473,7 @@
 <li class='q '>iphone 14 pro 256</li>
 <li class='q '>iphone lila</li>
 <li class='q '>iphone 15pro max 512gb</li>
-<li class='q '>cascos cable iphone</li></ul></details></li></ul></details></li><li><details open><summary title='Queries are specifically about Apple accessories like wireless chargers, MacBook cases, Apple Studio Display, Apple Pencil, and Apple Watch chargers.'><b>Apple Charging &amp; Accessories</b> n=44, sse=29.16, depth=4</summary><ul><li class='q '>cargador inalambrico apple</li>
+<li class='q '>cascos cable iphone</li></ul></details></li></ul></details></li><li><details open><summary title='Este nodo agrupa consultas relacionadas con cargadores y fundas para dispositivos Apple, así como el Apple Studio Display y Apple Pencil.'><b>Accesorios Apple</b> n=44, sse=29.16, nivel=4</summary><ul><li class='q '>cargador inalambrico apple</li>
 <li class='q '>funda macbook</li>
 <li class='q '>apple studio display</li>
 <li class='q '>apple pencil usb</li>
@@ -1516,7 +1516,7 @@
 <li class='q zero'>apple bandje</li>
 <li class='q '>macbook reacondicionado</li>
 <li class='q '>apple headphones</li>
-<li class='q '>laptop apple</li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='This node groups queries related to screens, monitors, and TVs, along with a sports watch.'><b>Visual Displays &amp; Peripherals</b> n=389, sse=338.02, depth=2</summary><ul><li><details open><summary title='Queries include car displays, high-end TVs, gaming monitors, GPS devices, specialized TV technologies, and networking equipment.'><b>Electronics and Automotive Displays</b> n=183, sse=166.80, depth=3</summary><ul><li><details open><summary title='Queries focus on high-performance electronics like gaming monitors, fitness trackers, and specialized networking equipment, implying a need for speed and advanced features.'><b>Performance Electronics</b> n=132, sse=120.19, depth=4</summary><ul><li><details open><summary title='Queries include specific vehicle displays, gaming monitors, networking equipment (router), cameras, and home appliances (water heater).'><b>Specialty Electronics and Appliances</b> n=61, sse=50.99, depth=5</summary><ul><li><details open><summary title='This node covers a range of technology-related items including car displays, networking equipment, cameras, graphics cards, kitchen appliance accessories, and computer peripherals.'><b>Tech Components and Accessories</b> n=21, sse=16.28, depth=6</summary><ul><li class='q '>pantallas peugeot 206</li>
+<li class='q '>laptop apple</li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='Este nodo se enfoca en consultas relacionadas con pantallas de televisión y monitores, así como dispositivos de seguimiento deportivo.'><b>Pantallas y Electrónica Visual</b> n=389, sse=338.02, nivel=2</summary><ul><li><details open><summary title='Agrupa consultas de componentes de PC (monitor con crosshair), dispositivos de navegación (Garmin Forerunner), pantallas de coche (pantallas Peugeot 206), televisores específicos (LG OLED) y redes (router Asus).'><b>Electrónica especializada</b> n=183, sse=166.80, nivel=3</summary><ul><li><details open><summary title='Las consultas se centran en accesorios para dispositivos, componentes de ordenador, y cámaras instantáneas, sugiriendo intereses en mejorar o complementar equipos existentes.'><b>Periféricos y Consumibles</b> n=132, sse=120.19, nivel=4</summary><ul><li><details open><summary title='Se enfoca en componentes como pantallas de coche (Peugeot 206), monitores para gaming, routers, cámaras fotográficas y calentadores de agua, sugiriendo la búsqueda de partes o accesorios específicos para diferentes usos.'><b>Componentes y accesorios tecnológicos</b> n=61, sse=50.99, nivel=5</summary><ul><li><details open><summary title='Este nodo agrupa componentes de PC (tarjeta gráfica), accesorios para vehículos (pantallas), cámaras instantáneas y periféricos de ordenador.'><b>Componentes y Periféricos de Tecnología</b> n=21, sse=16.28, nivel=6</summary><ul><li class='q '>pantallas peugeot 206</li>
 <li class='q zero'>router asus ac-750</li>
 <li class='q zero'>instax sq40</li>
 <li class='q '>asus rtx 4060</li>
@@ -1536,7 +1536,7 @@
 <li class='q '>asus v470</li>
 <li class='q zero'>robot ecovacs t30s combo</li>
 <li class='q '>asus fx507</li>
-<li class='q '>braun series kit 10 en</li></ul></details></li><li><details open><summary title='The queries cover a mix of high-spec monitors, cameras, home appliances (water heaters), and video games/consoles, representing diverse consumer electronics.'><b>Consumer Electronics &amp; Gaming Peripherals</b> n=40, sse=31.71, depth=6</summary><ul><li class='q zero'>monitor con crosshair 120hz</li>
+<li class='q '>braun series kit 10 en</li></ul></details></li><li><details open><summary title='Este grupo contiene productos muy concretos como monitores gaming, cámaras, calentadores de agua y videojuegos, sugiriendo interés en artículos de entretenimiento y hogar.'><b>Electrónica de Consumo Específica</b> n=40, sse=31.71, nivel=6</summary><ul><li class='q zero'>monitor con crosshair 120hz</li>
 <li class='q '>cámara canon g7x mark ii</li>
 <li class='q '>ariston 100l</li>
 <li class='q '>just dance nintendo switch</li>
@@ -1575,7 +1575,7 @@
 <li class='q '>cámara deportiva 360</li>
 <li class='q '>canon 3750i</li>
 <li class='q zero'>vivo x200pro</li>
-<li class='q zero'>vivo x200 pro</li></ul></details></li></ul></details></li><li><details open><summary title='Queries relate to gaming consoles (Switch), games (Mario Kart), computer monitors with specific features, and specific tech brands (Garmin, Acer, Nothing Phone).'><b>Gaming and Computing Peripherals</b> n=71, sse=63.46, depth=5</summary><ul><li><details open><summary title='This node groups together queries for video games (Nintendo Switch), a specific phone, a smart scooter, drone accessories, and GPS watches, indicating a mix of tech and leisure items.'><b>Gaming, Electronics, and Wearables</b> n=26, sse=21.91, depth=6</summary><ul><li class='q '>switch mario kart</li>
+<li class='q zero'>vivo x200 pro</li></ul></details></li></ul></details></li><li><details open><summary title='Incluye dispositivos de gaming (Switch Mario Kart, juegos Switch Mario), dispositivos de navegación (Garmin Forerunner), y electrónica diversa como monitores y teléfonos.'><b>Electrónica y gaming</b> n=71, sse=63.46, nivel=5</summary><ul><li><details open><summary title='Incluye productos de entretenimiento (juegos Switch) y dispositivos de tecnología personal y para el hogar (teléfono, patinete, dron, reloj GPS).'><b>Electrónica de Ocio y Pequeños Dispositivos</b> n=26, sse=21.91, nivel=6</summary><ul><li class='q '>switch mario kart</li>
 <li class='q '>juegos switch mario</li>
 <li class='q '>nothing phone 3a 128</li>
 <li class='q '>patinete smartgyro</li>
@@ -1600,7 +1600,7 @@
 <li class='q '>pila 373 reloj</li>
 <li class='q '>super mario jamboree</li>
 <li class='q '>dji osmo action 5pro</li>
-<li class='q zero'>garmin fenix charger</li></ul></details></li><li><details open><summary title='Queries include wearable fitness trackers (Garmin), smart home devices (Roborock), and mobile phones/tablets (Acer, Samsung Galaxy).'><b>Wearable &amp; Mobile Electronics</b> n=45, sse=37.10, depth=6</summary><ul><li class='q '>garmin forerunner 255</li>
+<li class='q zero'>garmin fenix charger</li></ul></details></li><li><details open><summary title='Este nodo agrupa dispositivos de diferentes marcas como Garmin, Acer, Roborock y Samsung, incluyendo modelos específicos.'><b>Electrónica con Marcas Específicas</b> n=45, sse=37.10, nivel=6</summary><ul><li class='q '>garmin forerunner 255</li>
 <li class='q '>hw-q9</li>
 <li class='q '>acer aspire</li>
 <li class='q '>roborock s8</li>
@@ -1644,7 +1644,7 @@
 <li class='q '>garmin forerunner 265</li>
 <li class='q '>s21 ulra</li>
 <li class='q '>aspirador dyson v15</li>
-<li class='q '>moviles galaxi 16</li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='Queries are specific to high-end LG televisions (OLED, Nanocell, QNED) and advanced monitors, indicating interest in premium display technology.'><b>Premium Televisions &amp; Monitors</b> n=51, sse=35.99, depth=4</summary><ul><li class='q '>lg oled55c44la aeu 55</li>
+<li class='q '>moviles galaxi 16</li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='Las consultas se centran exclusivamente en televisores y monitores de la marca LG, incluyendo modelos OLED y Nanocell.'><b>Televisores y Monitores LG</b> n=51, sse=35.99, nivel=4</summary><ul><li class='q '>lg oled55c44la aeu 55</li>
 <li class='q '>televisores nanocell</li>
 <li class='q '>monitor 160 hd</li>
 <li class='q zero'>lg 65 qned86a6</li>
@@ -1693,7 +1693,7 @@
 <li class='q '>lg 55 pulgadas</li>
 <li class='q zero'>lego wii</li>
 <li class='q '>lg oled g5 77 ls</li>
-<li class='q '>lg nanocell 80 55</li></ul></details></li></ul></details></li><li><details open><summary title='This node covers searches for specific TV models (Xiaomi, Samsung) and smartphone models (Xiaomi Redmi, Samsung Galaxy).'><b>Televisions and Smartphones</b> n=206, sse=149.51, depth=3</summary><ul><li><details open><summary title='All queries revolve around Samsung products, specifically smartphones, tablets, and smart TVs, indicating a strong focus on this brand&#x27;s ecosystem.'><b>Samsung Devices &amp; Ecosystem</b> n=130, sse=85.52, depth=4</summary><ul><li><details open><summary title='Features specific Sony products like &#x27;sony pulse&#x27;, &#x27;sony bravia&#x27;, and camera models, along with a Bose audio system (&#x27;bose s1 pro&#x27;).'><b>Sony and Bose Audio/Visual Products</b> n=36, sse=19.78, depth=5</summary><ul><li class='q '>sony pulse</li>
+<li class='q '>lg nanocell 80 55</li></ul></details></li></ul></details></li><li><details open><summary title='Este nodo contiene búsquedas de televisores (TV Xiaomi, Smart TV Samsung, Xiaomi TV) y smartphones (Xiaomi Redmi, Samsung S23 Ultra).'><b>Televisores y smartphones</b> n=206, sse=149.51, nivel=3</summary><ul><li><details open><summary title='Todas las consultas giran en torno a productos de la marca Samsung, incluyendo teléfonos, tablets y ordenadores portátiles.'><b>Dispositivos Samsung</b> n=130, sse=85.52, nivel=4</summary><ul><li><details open><summary title='Se centra en productos de la marca Sony (altavoces Pulse, televisores Bravia, cámaras Cyber-shot, a6700) y un altavoz Bose.'><b>Electrónica Sony y Audio</b> n=36, sse=19.78, nivel=5</summary><ul><li class='q '>sony pulse</li>
 <li class='q '>sony pulse 3d</li>
 <li class='q '>sony bravia 55</li>
 <li class='q '>cargador batería sony cybershot hx90</li>
@@ -1728,7 +1728,7 @@
 <li class='q '>televisores sony</li>
 <li class='q '>cámara sony 4k</li>
 <li class='q '>sony theater bar</li>
-<li class='q '>sony altavoz</li></ul></details></li><li><details open><summary title='This node is highly specific to Samsung products, including smart TVs, mobile phones (S23 Ultra, mobile 24), tablets (Tab S9), and laptops.'><b>Samsung Devices &amp; Electronics</b> n=94, sse=52.89, depth=5</summary><ul><li><details open><summary title='This node is specific to Samsung mobile phones, including various models and related accessories like cases.'><b>Samsung Smartphones &amp; Accessories</b> n=44, sse=18.83, depth=6</summary><ul><li class='q '>moviles samsung s23 ultra 128 gb</li>
+<li class='q '>sony altavoz</li></ul></details></li><li><details open><summary title='Todas las consultas se refieren a productos de la marca Samsung, incluyendo televisores, teléfonos móviles (Galaxy S23 Ultra, Galaxy S24) y tablets (Galaxy Tab S9).'><b>Dispositivos Samsung</b> n=94, sse=52.89, nivel=5</summary><ul><li><details open><summary title='Este nodo se enfoca en teléfonos móviles de la marca Samsung y sus accesorios, como fundas.'><b>Móviles y Fundas Samsung</b> n=44, sse=18.83, nivel=6</summary><ul><li class='q '>moviles samsung s23 ultra 128 gb</li>
 <li class='q '>galaxy a13</li>
 <li class='q '>funda samsung a36</li>
 <li class='q '>samsung galaxy a05</li>
@@ -1771,7 +1771,7 @@
 <li class='q '>samsung galaxy 25</li>
 <li class='q '>samsung galaxy a34</li>
 <li class='q zero'>samsung galaxy s22 ultra</li>
-<li class='q '>samsung s20 ultra</li></ul></details></li><li><details open><summary title='This node focuses on Samsung products, including smart TVs and various mobile devices like phones and tablets.'><b>Samsung Televisions &amp; Mobile Devices</b> n=50, sse=27.70, depth=6</summary><ul><li class='q '>smart tv 24 pulgadas samsung</li>
+<li class='q '>samsung s20 ultra</li></ul></details></li><li><details open><summary title='Este nodo se centra en una gama de productos Samsung, incluyendo televisores inteligentes, teléfonos móviles y tablets.'><b>Electrónica Samsung Variada</b> n=50, sse=27.70, nivel=6</summary><ul><li class='q '>smart tv 24 pulgadas samsung</li>
 <li class='q '>trlofono movil samsung</li>
 <li class='q '>samsung tab s9</li>
 <li class='q '>ordenador portatil samsung</li>
@@ -1820,7 +1820,7 @@
 <li class='q zero'>keyboard tablet samsung a8</li>
 <li class='q '>samsung 25</li>
 <li class='q '>tv qled 65 samsung</li>
-<li class='q '>tv samsung 50</li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='All queries focus on Xiaomi products, including smartphones, TVs, and electric scooters, highlighting a strong interest in this brand&#x27;s diverse offerings.'><b>Xiaomi Ecosystem Products</b> n=76, sse=42.56, depth=4</summary><ul><li class='q '>tv xiaomi 43</li>
+<li class='q '>tv samsung 50</li></ul></details></li></ul></details></li></ul></details></li><li><details open><summary title='Todas las consultas se refieren a productos de la marca Xiaomi, incluyendo teléfonos, televisores y patinetes eléctricos.'><b>Productos Xiaomi</b> n=76, sse=42.56, nivel=4</summary><ul><li class='q '>tv xiaomi 43</li>
 <li class='q '>xiaomi redmi 12</li>
 <li class='q '>xiaomi tv 2025</li>
 <li class='q '>xiaomi red mi note 13</li>
@@ -1870,5 +1870,5 @@
 <li class='q '>xiaomi patinete</li>
 <li class='q '>xiaomi redmi 15</li>
 <li class='q '>auriculares huawei free buds</li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul>
-</body>
+    </body>
 </html>
